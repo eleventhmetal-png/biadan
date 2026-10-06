@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bíadán — Dinner, decided.</title>
+<meta name="description" content="Bíadán plans your week of dinners, builds your grocery list, and hands it off to Instacart. Old Irish for little food — dinner solved.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #141414;
+    color: #f5f0e8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+  }
+  .bowl {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 32px;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  h1 span { color: #d97706; }
+  .tagline {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #a8a29e;
+    max-width: 480px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 400px;
+  }
+  input[type="email"] {
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid #3f3f46;
+    background: #1c1c1e;
+    color: #f5f0e8;
+    font-size: 1rem;
+    outline: none;
+  }
+  input[type="email"]:focus { border-color: #d97706; }
+  input[type="email"]::placeholder { color: #71717a; }
+  button {
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: none;
+    background: #d97706;
+    color: #141414;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:hover { background: #f59e0b; }
+  .note {
+    margin-top: 24px;
+    font-size: 0.85rem;
+    color: #71717a;
+  }
+  .note em { color: #a8a29e; font-style: normal; }
+</style>
+</head>
+<body>
+  <svg class="bowl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 55 C20 85 45 105 60 105 C75 105 100 85 100 55" stroke="#d97706" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M20 55 C20 25 45 15 60 15 C75 15 100 25 100 55" stroke="#d97706" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M60 15 C60 15 62 5 68 8" stroke="#d97706" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </svg>
+  <h1>Bíadán — <span>dinner, decided.</span></h1>
+  <p class="tagline">Old Irish for "little food." Bíadán plans your week of dinners, builds your grocery list, and hands it off to Instacart. No deciding. No seventeen-minute deliberation. Just dinner.</p>
+  <form name="waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="waitlist">
+    <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="email" name="email" placeholder="Enter your email for early access" required>
+    <button type="submit">Join the waitlist</button>
+  </form>
+  <p class="note">Mealime shut down. We're bringing it back — <em>better</em>.</p>
+</body>
+</html>
