@@ -4,11 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>You're on the list — Bíadán</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: #141414;
-    color: #f5f0e8;
+    background: #faf6f1;
+    color: #2c2420;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     min-height: 100vh;
     display: flex;
@@ -18,42 +21,46 @@
     text-align: center;
     padding: 40px 24px;
   }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-  .logo svg {
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-  }
-  .logo-word {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #d97706;
-    line-height: 1;
-  }
-  h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); margin-bottom: 16px; }
-  h1 span { color: #d97706; }
-  p { color: #a8a29e; max-width: 420px; line-height: 1.6; margin-bottom: 32px; }
-  a { color: #d97706; text-decoration: none; font-weight: 600; }
-  a:hover { text-decoration: underline; }
+  .logo { margin-bottom: 40px; }
+  .brand-lockup { display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .brand-mark { width: clamp(48px, 12vw, 64px); height: auto; display: block; flex: none; overflow: hidden; }
+  .wordmark, h1 { font-family: 'Fraunces', Georgia, serif; }
+  .wordmark { font-size: clamp(3rem, 10vw, 4rem); font-weight: 600; line-height: 1.1; color: #c4785a; }
+  h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); font-weight: 400; line-height: 1.2; margin-bottom: 16px; max-width: 620px; }
+  h1 span { color: #c4785a; }
+  .message { color: #8a7f78; max-width: 420px; line-height: 1.6; margin-bottom: 28px; }
+  .back { display: inline-block; padding: 16px 24px; border-radius: 12px; background: #c4785a; color: #2c2420; text-decoration: none; font-weight: 600; }
+  .back:hover { background: #d4926e; }
+  .back:focus-visible, button:focus-visible { outline: 3px solid #2c2420; outline-offset: 4px; }
+  .return-note { color: #8a7f78; font-size: .85rem; margin: 18px 0 10px; }
+  button { background: none; border: none; color: #8a7f78; font: inherit; font-size: .85rem; cursor: pointer; text-decoration: underline; padding: 8px; }
 </style>
 </head>
 <body>
   <div class="logo">
-    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 55 C20 85 45 105 60 105 C75 105 100 85 100 55" stroke="#d97706" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M20 55 C20 25 45 15 60 15 C75 15 100 25 100 55" stroke="#d97706" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M60 15 C60 15 62 5 68 8" stroke="#d97706" stroke-width="4" fill="none" stroke-linecap="round"/>
-    </svg>
-    <span class="logo-word">Bíadán</span>
+    <div class="brand-lockup">
+      <svg class="brand-mark" viewBox="320 232 322 316" aria-hidden="true" focusable="false">
+        <image href="logo.png" width="1942" height="809" />
+      </svg>
+      <span class="wordmark">Bíadán</span>
+    </div>
   </div>
   <h1>You're on the list. <span>Dinner's coming.</span></h1>
-  <p>We'll email you when Bíadán opens up. In the meantime, tell a friend who's tired of deciding what's for dinner.</p>
-  <a href="/">← Back to Bíadán</a>
+  <p class="message">We'll email you when Bíadán opens up. In the meantime, tell a friend who's tired of deciding what's for dinner.</p>
+  <a class="back" id="back-home" href="/">← Back to Bíadán</a>
+  <p class="return-note" id="return-note">Use the button above to return to Bíadán.</p>
+  <button id="stay-here" type="button" hidden>Stay on this page</button>
+  <script>
+    const returnNote = document.getElementById('return-note');
+    const stayButton = document.getElementById('stay-here');
+    returnNote.textContent = 'Returning to Bíadán in 8 seconds.';
+    stayButton.hidden = false;
+    const returnTimer = window.setTimeout(() => window.location.replace('/'), 8000);
+    stayButton.addEventListener('click', () => {
+      window.clearTimeout(returnTimer);
+      returnNote.textContent = 'Automatic return paused. Use the Back button when you are ready.';
+      stayButton.hidden = true;
+    });
+  </script>
 </body>
 </html>
