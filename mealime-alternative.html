@@ -37,7 +37,7 @@
     flex: none;
     overflow: hidden;
   }
-  .wordmark, .headline {
+  .wordmark, .headline, .faq h2 {
     font-family: 'Fraunces', Georgia, serif;
   }
   .wordmark {
@@ -131,6 +131,36 @@
   }
   .home-link a { color: #c4785a; text-decoration: none; }
   .home-link a:hover { text-decoration: underline; }
+  .faq {
+    max-width: 520px;
+    margin: 40px auto 0;
+    text-align: left;
+  }
+  .faq h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c2420;
+    margin-bottom: 16px;
+  }
+  .faq details {
+    margin-bottom: 12px;
+    border: 1px solid #e5ddd4;
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 14px 16px;
+  }
+  .faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #2c2420;
+    font-size: 0.95rem;
+  }
+  .faq details p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #8a7f78;
+    line-height: 1.55;
+  }
 </style>
 </head>
 <body>
@@ -158,6 +188,21 @@
     <button type="submit">Join the waitlist</button>
   </form>
   <p class="note">Dinner, decided. No download yet. Early-access updates only.</p>
+  <div class="faq">
+    <h2>Common questions</h2>
+    <details>
+      <summary>Can I import my Mealime recipes?</summary>
+      <p>Not from Mealime's side — Mealime doesn't offer exports. But Bíadán supports bulk import, so you can bring your recipes in from a file or spreadsheet.</p>
+    </details>
+    <details>
+      <summary>Does Bíadán work with any grocery store?</summary>
+      <p>Yes. Your list works at any store — no grocery-chain account required.</p>
+    </details>
+    <details>
+      <summary>Is Bíadán free?</summary>
+      <p>The waitlist is free. Pricing comes when the app launches.</p>
+    </details>
+  </div>
   <p class="home-link"><a href="/">Back to Bíadán</a></p>
 </body>
 </html>
