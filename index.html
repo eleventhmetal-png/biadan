@@ -130,10 +130,15 @@
   <form name="waitlist" method="POST" action="/thanks" data-netlify="true" data-netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="waitlist">
     <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="hidden" name="src" value="">
     <input type="email" name="email" placeholder="Enter your email for early access" required>
     <button type="submit">Join the waitlist</button>
   </form>
   <p class="note">A few dinners. One less decision.</p>
   <p class="alt-link"><a href="/mealime-alternative">Mealime shutting down? See Bíadán.</a></p>
+<script>
+(function(){var p=new URLSearchParams(location.search),v=(p.get('src')||p.get('utm_source')||'').replace(/[^\w.-]/g,'').slice(0,64);
+var el=document.querySelector('form[name="waitlist"] input[name="src"]');if(el)el.value=v||'none';})();
+</script>
 </body>
 </html>
